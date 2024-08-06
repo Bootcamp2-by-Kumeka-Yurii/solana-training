@@ -12,8 +12,10 @@
   "dependencies": {
     "@solana-developers/helpers": "^2.4.0",
     "@solana/web3.js": "^1.95.2",
+    "cluster": "^0.7.7",
     "esrun": "^3.2.26",
     "ora": "^4.1.1",
+    "os": "^0.1.2",
     "punycode": "^2.3.1"
   }
 }
