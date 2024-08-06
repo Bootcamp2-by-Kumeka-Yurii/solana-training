@@ -1,7 +1,7 @@
 import "dotenv/config";
 import { Keypair } from "@solana/web3.js";
 import { createInterface } from 'readline';
-import ora from 'ora';  // <-- Added ora package
+const ora = require('ora');
 
 const readline = createInterface({
     input: process.stdin,
@@ -23,14 +23,14 @@ function generateKeypairWithPrefix(prefix: string): Keypair {
     let keypair: Keypair;
     let publicKey: string;
     const start = Date.now();
-    const spinner = ora('Generating a Keypair with prefix...').start();  // <-- Added Spinner Start
+    const spinner = ora('Generating a Keypair with prefix...').start();
 
     do {
         keypair = Keypair.generate();
         publicKey = keypair.publicKey.toBase58();
     } while (!publicKey.startsWith(prefix));
 
-    spinner.succeed('Keypair successfully generated!');  // <-- Spinner End
+    spinner.succeed('Keypair successfully generated!');
     const end = Date.now();
     console.log(`Generated Public key: ${publicKey}`);
     console.log(`Time taken: ${(end - start) / 1000} seconds`);
