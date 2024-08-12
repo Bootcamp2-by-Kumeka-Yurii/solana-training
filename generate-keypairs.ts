@@ -1,13 +1,6 @@
-import "dotenv/config";
 import { Keypair } from "@solana/web3.js";
+const keypair = Keypair.generate();
 
-const secretKeyEnv = process.env["SECRET_KEY"];
-
-if (typeof secretKeyEnv !== "string") {
-    throw new Error('SECRET_KEY environment variable is not defined or not a string');
-}
-
-const asArray = Uint8Array.from(JSON.parse(secretKeyEnv));
-const keypair = Keypair.fromSecretKey(asArray);
-
-console.log(`Public key: ${keypair.publicKey.toBase58()}`);
+console.log('The public key is: ', keypair.publicKey.toBase58());
+console.log('The secret key is: ', keypair.secretKey);
+console.log('✅ Finished!');
